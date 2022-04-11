@@ -1,0 +1,8 @@
+steps:
+    - id: tidy
+      name: golang:1.15.2
+      args: ['make', 'tidy']
+    - id: check
+      name: golangci/golangci-lint
+      args: ['make', 'check']
+      waitFor: ['tidy']
